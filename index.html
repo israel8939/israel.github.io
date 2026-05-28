@@ -1,192 +1,426 @@
+# Enhanced Love Story Website
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Love Story Page</title>
+<title>Our Love Story Memories</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
 
 <style>
-    .love-photo{
-    width:320px;
-    border-radius:25px;
-    margin-top:30px;
-    box-shadow:0 0 40px rgba(255,77,136,0.4);
-    transition:0.5s;
-}
-
-.love-photo:hover{
-    transform:scale(1.05);
-}
-    <img src="photo.jpg" class="love-photo">
-
-
-<style>
-<style>
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
-
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
+    font-family:'Poppins', sans-serif;
 }
 
 body{
-    font-family:'Poppins',sans-serif;
-    background:
-    radial-gradient(circle at top,#ff4d8860 0%,#000 35%),
-    linear-gradient(to bottom,#050505,#000);
-    color:white;
+    background: linear-gradient(135deg, #ffdde1, #ee9ca7, #ffb6c1);
+    background-size: 300% 300%;
+    animation: bgMove 10s infinite alternate;
+    color:#fff;
     overflow-x:hidden;
+    min-height:100vh;
 }
 
-/* BACKGROUND GLOW */
-body::before{
-    content:'';
-    position:fixed;
-    width:500px;
-    height:500px;
-    background:#ff4d8850;
-    border-radius:50%;
-    filter:blur(140px);
-    top:-120px;
-    right:-120px;
-    z-index:-2;
+@keyframes bgMove{
+    0%{background-position:0% 50%;}
+    100%{background-position:100% 50%;}
 }
 
-body::after{
-    content:'';
-    position:fixed;
-    width:400px;
-    height:400px;
-    background:#ff008050;
-    border-radius:50%;
-    filter:blur(140px);
-    bottom:-100px;
-    left:-100px;
-    z-index:-2;
+header{
+    text-align:center;
+    padding:30px 20px;
 }
 
-/* HERO */
-.hero{
-    height:100vh;
+header h1{
+    font-size:42px;
+    text-shadow:0 5px 20px rgba(0,0,0,0.3);
+}
+
+header p{
+    opacity:0.9;
+    margin-top:10px;
+}
+
+nav{
     display:flex;
     justify-content:center;
-    align-items:center;
-    flex-direction:column;
-    text-align:center;
-    padding:20px;
+    gap:12px;
+    margin:20px;
+    flex-wrap:wrap;
 }
 
-.hero h1{
-    font-size:85px;
+nav button{
+    padding:10px 18px;
+    border:none;
+    border-radius:25px;
+    cursor:pointer;
+    background:rgba(255,255,255,0.2);
+    color:#fff;
     font-weight:600;
-    animation:fadeUp 1.5s ease;
+    transition:0.3s;
+    backdrop-filter: blur(10px);
+    box-shadow:0 5px 15px rgba(0,0,0,0.15);
 }
 
-.hero h1 span{
-    color:#ff4d88;
+nav button:hover{
+    transform:scale(1.1);
+    background:rgba(255,255,255,0.35);
 }
 
-.hero p{
-    margin-top:30px;
+.page{
+    display:none;
+    padding:20px;
+    min-height:65vh;
+    opacity:0;
+    transform:translateY(30px);
+    transition:0.5s ease;
+}
+
+.page.active{
+    display:block;
+    opacity:1;
+    transform:translateY(0);
+}
+
+.card{
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(20px);
+    border-radius:25px;
+    padding:30px;
+    margin:20px auto;
     max-width:850px;
-    color:#ddd;
-    line-height:2;
-    font-size:24px;
-    animation:fadeUp 2s ease;
+    border:1px solid rgba(255,255,255,0.25);
+    box-shadow:
+    0 8px 32px rgba(0,0,0,0.25),
+    inset 0 0 20px rgba(255,255,255,0.08);
+    transition:0.3s;
 }
 
-/* SECTION */
-.section{
-    padding:120px 8%;
+.card:hover{
+    transform:translateY(-8px) scale(1.01);
 }
 
-.title{
-    text-align:center;
-    font-size:55px;
-    margin-bottom:80px;
-}
-
-.title span{
-    color:#ff4d88;
-}
-
-/* MEMORY CARDS */
-.memory-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
-    gap:40px;
-}
-
-.memory-card{
-    padding:35px;
-    border-radius:20px;
-    background:rgba(255,255,255,0.05);
-    border:1px solid rgba(255,255,255,0.1);
-    backdrop-filter:blur(12px);
-}
-
-.memory-card h2{
-    color:#ff4d88;
+.card h2{
+    font-size:28px;
     margin-bottom:15px;
+    text-shadow:0 3px 10px rgba(0,0,0,0.2);
 }
 
-.memory-card p{
-    color:#ddd;
-    line-height:1.8;
+.story{
+    margin-top:10px;
+    line-height:1.9;
+    font-size:16px;
 }
 
-@keyframes fadeUp{
-    from{opacity:0; transform:translateY(50px);}
-    to{opacity:1; transform:translateY(0);}
+.badge{
+    display:inline-block;
+    margin-top:15px;
+    padding:6px 14px;
+    border-radius:50px;
+    background:rgba(255,255,255,0.25);
+    font-size:12px;
+}
+
+.heart{
+    color:#ff2e63;
+    animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+    0%{transform:scale(1);}
+    50%{transform:scale(1.2);}
+    100%{transform:scale(1);}
+}
+
+footer{
+    text-align:center;
+    padding:30px;
+    opacity:0.85;
+}
+
+.heart-bg{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    pointer-events:none;
+    overflow:hidden;
+}
+
+.heart-bg span{
+    position:absolute;
+    bottom:-20px;
+    color:rgba(255,255,255,0.5);
+    animation:floatUp 10s linear infinite;
+}
+
+@keyframes floatUp{
+    0%{transform:translateY(0) scale(1); opacity:1;}
+    100%{transform:translateY(-100vh) scale(1.5); opacity:0;}
+}
+
+.love-text{
+    font-size:48px;
+    font-weight:900;
+    text-align:center;
+    margin-top:20px;
+    background: linear-gradient(90deg,#fff,#ff2e63,#fff);
+    background-size:300%;
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    animation:shine 4s linear infinite, pulseLove 1.5s infinite;
+    letter-spacing:2px;
+}
+
+@keyframes shine{
+    0%{background-position:0%;}
+    100%{background-position:300%;}
+}
+
+@keyframes pulseLove{
+    0%{transform:scale(1);}
+    50%{transform:scale(1.08);}
+    100%{transform:scale(1);}
+}
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:15px;
+    margin-top:20px;
+}
+
+.gallery img{
+    width:100%;
+    border-radius:20px;
+    transition:0.4s;
+    box-shadow:0 5px 20px rgba(0,0,0,0.2);
+}
+
+.gallery img:hover{
+    transform:scale(1.05);
+}
+
+.typing{
+    text-align:center;
+    font-size:20px;
+    margin-top:20px;
+    min-height:40px;
+}
+
+.counter{
+    text-align:center;
+    margin-top:20px;
+    font-size:22px;
+    font-weight:600;
+}
+
+.music-btn{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:rgba(255,255,255,0.2);
+    border:none;
+    padding:14px 18px;
+    border-radius:50%;
+    color:white;
+    font-size:20px;
+    cursor:pointer;
+    backdrop-filter:blur(10px);
+    box-shadow:0 5px 20px rgba(0,0,0,0.2);
 }
 
 @media(max-width:768px){
-.hero h1{font-size:50px;}
-.hero p{font-size:18px;}
+
+header h1{
+    font-size:32px;
+}
+
+.love-text{
+    font-size:32px;
+}
+
+.card{
+    padding:22px;
+}
+
 }
 </style>
 
 </head>
-
 <body>
 
-<!-- HERO -->
-<div class="hero">
-    <h1>Our <span>Memories</span></h1>
-    <p>
-        This is a glowing love-themed website. You can add your own memories below.
-    </p>
-</div>
+<div class="heart-bg" id="hearts"></div>
 
-<!-- MEMORIES -->
-<section class="section">
-    <div class="title">Memory <span>Cards</span></div>
+<header>
+    <h1>Our Love Story ❤️</h1>
+    <p>Beautiful memories written in time</p>
+</header>
 
-    <div class="memory-grid">
+<nav>
+    <button onclick="go('home')">Home</button>
+    <button onclick="go('school')">School Days</button>
+    <button onclick="go('dating')">Dating</button>
+    <button onclick="go('auto')">Auto & Classroom</button>
+    <button onclick="go('gallery')">Gallery</button>
+</nav>
 
-        <div class="memory-card">
-            <h2>First Meet</h2>
-            <p>Write your first story here...</p>
-        </div>
+<div id="home" class="page active">
+    <div class="card">
 
-        <div class="memory-card">
-            <h2>Special Day</h2>
-            <p>Write your special moment...</p>
-        </div>
+        <h2 id="typing" class="typing"></h2>
 
-        <div class="memory-card">
-            <h2>Unforgettable Moment</h2>
-            <p>Add your emotional memory here...</p>
-        </div>
+        <div class="love-text">LOVE YOU VARSHINI 💖</div>
+
+        <div class="counter" id="daysCounter"></div>
+
+        <p style="margin-top:20px;text-align:center;line-height:1.8;">
+            This is our love memory world. Every page holds a piece of our story.
+            Every smile, every glance and every moment stays forever in our hearts.
+        </p>
+
+        <span class="badge">Start your journey</span>
 
     </div>
-</section>
+</div>
+
+<div id="school" class="page">
+    <div class="card">
+        <h2>School Days Love 💕</h2>
+        <div class="story">
+            We saw each other in school every day.<br>
+            Morning prayer moments searching eyes.<br>
+            Different classes, same feelings.<br>
+            Silent glances became our first connection.<br>
+            We never needed words to understand.
+        </div>
+        <span class="badge">First Love Chapter</span>
+    </div>
+</div>
+
+<div id="dating" class="page">
+    <div class="card">
+        <h2>Memorable Dating 🌆</h2>
+        <div class="story">
+            Nexus Mall walks full of laughter.<br>
+            Express Avenue evenings holding hands in thoughts.<br>
+            Theatre nights sharing popcorn and smiles.<br>
+            Every date felt like a dream world.<br>
+            Time always stopped for us.
+        </div>
+        <span class="badge">Sweet Moments</span>
+    </div>
+</div>
+
+<div id="auto" class="page">
+    <div class="card">
+        <h2>Auto & Classroom Memories 🚖</h2>
+        <div class="story">
+            Quiet auto rides with hidden smiles.<br>
+            Classroom glances that said everything.<br>
+            Accidental touches that stayed forever.<br>
+            Romance lived in small moments.<br>
+            Nothing loud, just pure feelings.
+        </div>
+        <span class="badge">Hidden Romance</span>
+    </div>
+</div>
+
+<div id="gallery" class="page">
+    <div class="card">
+        <h2>Our Memories 📸</h2>
+
+        <div class="gallery">
+            <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=80&w=1200&auto=format&fit=crop" alt="memory">
+
+            <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1200&auto=format&fit=crop" alt="memory">
+
+            <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?q=80&w=1200&auto=format&fit=crop" alt="memory">
+
+            <img src="https://images.unsplash.com/photo-1494774157365-9e04c6720e47?q=80&w=1200&auto=format&fit=crop" alt="memory">
+        </div>
+
+        <span class="badge">Forever Memories</span>
+    </div>
+</div>
+
+<footer>
+    Made with <span class="heart">❤</span> forever memories
+</footer>
+
+<button class="music-btn" onclick="toggleMusic()">🎵</button>
+
+<audio id="bgMusic" loop>
+    <source src="love-song.mp3" type="audio/mp3">
+</audio>
+
+<script>
+function go(page){
+    document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+    document.getElementById(page).classList.add('active');
+    window.location.hash = page;
+}
+
+const heartContainer = document.getElementById("hearts");
+
+function createHearts(){
+    const heart = document.createElement("span");
+    heart.innerHTML = "❤";
+    heart.style.left = Math.random()*100 + "vw";
+    heart.style.fontSize = (10 + Math.random()*20) + "px";
+    heart.style.animationDuration = (5 + Math.random()*5) + "s";
+    heartContainer.appendChild(heart);
+    setTimeout(()=>heart.remove(),10000);
+}
+
+setInterval(createHearts, 500);
+
+window.onload = function(){
+    let hash = window.location.hash.replace('#','');
+    if(hash){ go(hash); }
+}
+
+const text = "Every love story is beautiful, but ours is my favorite ❤️";
+let i = 0;
+
+function type(){
+    if(i < text.length){
+        document.getElementById("typing").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(type, 60);
+    }
+}
+
+type();
+
+const startDate = new Date("2024-01-01");
+const today = new Date();
+const diffTime = Math.abs(today - startDate);
+const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+document.getElementById("daysCounter").innerHTML = `💖 Together for ${diffDays} days 💖`;
+
+const music = document.getElementById("bgMusic");
+let playing = false;
+
+function toggleMusic(){
+    if(!playing){
+        music.play();
+        playing = true;
+    }else{
+        music.pause();
+        playing = false;
+    }
+}
+</script>
 
 </body>
 </html>
+```

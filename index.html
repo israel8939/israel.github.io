@@ -1,28 +1,28 @@
-# Enhanced Love Story Website
-
 ```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Our Love Story Memories</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Our Love Story ❤️</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
 
 <style>
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:'Poppins', sans-serif;
+    font-family:'Poppins',sans-serif;
 }
 
 body{
-    background: linear-gradient(135deg, #ffdde1, #ee9ca7, #ffb6c1);
-    background-size: 300% 300%;
-    animation: bgMove 10s infinite alternate;
-    color:#fff;
+    background: linear-gradient(135deg,#ffdde1,#ee9ca7,#ffb6c1);
+    background-size:300% 300%;
+    animation:bgMove 10s infinite alternate;
+    color:white;
     overflow-x:hidden;
     min-height:100vh;
 }
@@ -34,42 +34,41 @@ body{
 
 header{
     text-align:center;
-    padding:30px 20px;
+    padding:35px 20px;
 }
 
 header h1{
-    font-size:42px;
+    font-size:48px;
     text-shadow:0 5px 20px rgba(0,0,0,0.3);
 }
 
 header p{
-    opacity:0.9;
     margin-top:10px;
+    opacity:0.9;
 }
 
 nav{
     display:flex;
     justify-content:center;
+    flex-wrap:wrap;
     gap:12px;
     margin:20px;
-    flex-wrap:wrap;
 }
 
 nav button{
-    padding:10px 18px;
+    padding:12px 18px;
     border:none;
-    border-radius:25px;
+    border-radius:30px;
     cursor:pointer;
     background:rgba(255,255,255,0.2);
-    color:#fff;
+    color:white;
     font-weight:600;
+    backdrop-filter:blur(10px);
     transition:0.3s;
-    backdrop-filter: blur(10px);
-    box-shadow:0 5px 15px rgba(0,0,0,0.15);
 }
 
 nav button:hover{
-    transform:scale(1.1);
+    transform:scale(1.08);
     background:rgba(255,255,255,0.35);
 }
 
@@ -78,7 +77,7 @@ nav button:hover{
     padding:20px;
     min-height:65vh;
     opacity:0;
-    transform:translateY(30px);
+    transform:translateY(20px);
     transition:0.5s ease;
 }
 
@@ -89,94 +88,50 @@ nav button:hover{
 }
 
 .card{
-    background: rgba(255,255,255,0.12);
-    backdrop-filter: blur(20px);
-    border-radius:25px;
-    padding:30px;
+    max-width:900px;
     margin:20px auto;
-    max-width:850px;
+    padding:30px;
+    border-radius:25px;
+    background:rgba(255,255,255,0.12);
+    backdrop-filter:blur(20px);
     border:1px solid rgba(255,255,255,0.25);
-    box-shadow:
-    0 8px 32px rgba(0,0,0,0.25),
-    inset 0 0 20px rgba(255,255,255,0.08);
+    box-shadow:0 10px 35px rgba(0,0,0,0.25);
     transition:0.3s;
 }
 
 .card:hover{
-    transform:translateY(-8px) scale(1.01);
+    transform:translateY(-5px);
 }
 
 .card h2{
-    font-size:28px;
     margin-bottom:15px;
-    text-shadow:0 3px 10px rgba(0,0,0,0.2);
+    font-size:30px;
 }
 
 .story{
-    margin-top:10px;
     line-height:1.9;
-    font-size:16px;
+    font-size:17px;
 }
 
 .badge{
     display:inline-block;
-    margin-top:15px;
-    padding:6px 14px;
+    margin-top:18px;
+    padding:7px 15px;
     border-radius:50px;
     background:rgba(255,255,255,0.25);
-    font-size:12px;
-}
-
-.heart{
-    color:#ff2e63;
-    animation:pulse 1.5s infinite;
-}
-
-@keyframes pulse{
-    0%{transform:scale(1);}
-    50%{transform:scale(1.2);}
-    100%{transform:scale(1);}
-}
-
-footer{
-    text-align:center;
-    padding:30px;
-    opacity:0.85;
-}
-
-.heart-bg{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    pointer-events:none;
-    overflow:hidden;
-}
-
-.heart-bg span{
-    position:absolute;
-    bottom:-20px;
-    color:rgba(255,255,255,0.5);
-    animation:floatUp 10s linear infinite;
-}
-
-@keyframes floatUp{
-    0%{transform:translateY(0) scale(1); opacity:1;}
-    100%{transform:translateY(-100vh) scale(1.5); opacity:0;}
+    font-size:13px;
 }
 
 .love-text{
-    font-size:48px;
+    font-size:50px;
     font-weight:900;
     text-align:center;
-    margin-top:20px;
-    background: linear-gradient(90deg,#fff,#ff2e63,#fff);
+    margin-top:25px;
+    background:linear-gradient(90deg,#fff,#ff2e63,#fff);
     background-size:300%;
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
-    animation:shine 4s linear infinite, pulseLove 1.5s infinite;
-    letter-spacing:2px;
+    animation:shine 4s linear infinite,pulseLove 1.5s infinite;
 }
 
 @keyframes shine{
@@ -190,6 +145,19 @@ footer{
     100%{transform:scale(1);}
 }
 
+.typing{
+    text-align:center;
+    font-size:22px;
+    min-height:40px;
+}
+
+.counter{
+    text-align:center;
+    margin-top:20px;
+    font-size:24px;
+    font-weight:600;
+}
+
 .gallery{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
@@ -201,50 +169,59 @@ footer{
     width:100%;
     border-radius:20px;
     transition:0.4s;
-    box-shadow:0 5px 20px rgba(0,0,0,0.2);
 }
 
 .gallery img:hover{
     transform:scale(1.05);
 }
 
-.typing{
+footer{
     text-align:center;
-    font-size:20px;
-    margin-top:20px;
-    min-height:40px;
+    padding:30px;
+    opacity:0.85;
 }
 
-.counter{
-    text-align:center;
-    margin-top:20px;
-    font-size:22px;
-    font-weight:600;
+.heart{
+    color:#ff2e63;
 }
 
-.music-btn{
+.heart-bg{
     position:fixed;
-    bottom:20px;
-    right:20px;
-    background:rgba(255,255,255,0.2);
-    border:none;
-    padding:14px 18px;
-    border-radius:50%;
-    color:white;
-    font-size:20px;
-    cursor:pointer;
-    backdrop-filter:blur(10px);
-    box-shadow:0 5px 20px rgba(0,0,0,0.2);
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    pointer-events:none;
+}
+
+.heart-bg span{
+    position:absolute;
+    bottom:-20px;
+    color:rgba(255,255,255,0.5);
+    animation:floatUp 10s linear infinite;
+}
+
+@keyframes floatUp{
+    0%{
+        transform:translateY(0) scale(1);
+        opacity:1;
+    }
+
+    100%{
+        transform:translateY(-100vh) scale(1.5);
+        opacity:0;
+    }
 }
 
 @media(max-width:768px){
 
 header h1{
-    font-size:32px;
+    font-size:34px;
 }
 
 .love-text{
-    font-size:32px;
+    font-size:34px;
 }
 
 .card{
@@ -252,9 +229,10 @@ header h1{
 }
 
 }
-</style>
 
+</style>
 </head>
+
 <body>
 
 <div class="heart-bg" id="hearts"></div>
@@ -273,152 +251,207 @@ header h1{
 </nav>
 
 <div id="home" class="page active">
+
     <div class="card">
 
         <h2 id="typing" class="typing"></h2>
 
-        <div class="love-text">LOVE YOU VARSHINI 💖</div>
+        <div class="love-text">
+            LOVE YOU VARSHINI 💖
+        </div>
 
         <div class="counter" id="daysCounter"></div>
 
-        <p style="margin-top:20px;text-align:center;line-height:1.8;">
-            This is our love memory world. Every page holds a piece of our story.
-            Every smile, every glance and every moment stays forever in our hearts.
+        <p style="margin-top:20px;text-align:center;line-height:1.9;">
+            Every memory with you feels magical.
+            Every smile, every glance and every moment
+            stays forever inside my heart.
         </p>
 
-        <span class="badge">Start your journey</span>
+        <span class="badge">Forever Together ❤️</span>
 
     </div>
+
 </div>
 
 <div id="school" class="page">
+
     <div class="card">
+
         <h2>School Days Love 💕</h2>
+
         <div class="story">
-            We saw each other in school every day.<br>
+            We saw each other every single day.<br>
             Morning prayer moments searching eyes.<br>
-            Different classes, same feelings.<br>
+            Different classrooms, same feelings.<br>
             Silent glances became our first connection.<br>
-            We never needed words to understand.
+            We never needed words to understand each other.
         </div>
+
         <span class="badge">First Love Chapter</span>
+
     </div>
+
 </div>
 
 <div id="dating" class="page">
+
     <div class="card">
+
         <h2>Memorable Dating 🌆</h2>
+
         <div class="story">
             Nexus Mall walks full of laughter.<br>
-            Express Avenue evenings holding hands in thoughts.<br>
+            Express Avenue evenings filled with memories.<br>
             Theatre nights sharing popcorn and smiles.<br>
             Every date felt like a dream world.<br>
             Time always stopped for us.
         </div>
+
         <span class="badge">Sweet Moments</span>
+
     </div>
+
 </div>
 
 <div id="auto" class="page">
+
     <div class="card">
+
         <h2>Auto & Classroom Memories 🚖</h2>
+
         <div class="story">
             Quiet auto rides with hidden smiles.<br>
             Classroom glances that said everything.<br>
             Accidental touches that stayed forever.<br>
-            Romance lived in small moments.<br>
+            Romance lived inside tiny moments.<br>
             Nothing loud, just pure feelings.
         </div>
+
         <span class="badge">Hidden Romance</span>
+
     </div>
+
 </div>
 
 <div id="gallery" class="page">
+
     <div class="card">
+
         <h2>Our Memories 📸</h2>
 
         <div class="gallery">
-            <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=80&w=1200&auto=format&fit=crop" alt="memory">
 
-            <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1200&auto=format&fit=crop" alt="memory">
+            <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=80&w=1200&auto=format&fit=crop">
 
-            <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?q=80&w=1200&auto=format&fit=crop" alt="memory">
+            <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1200&auto=format&fit=crop">
 
-            <img src="https://images.unsplash.com/photo-1494774157365-9e04c6720e47?q=80&w=1200&auto=format&fit=crop" alt="memory">
+            <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?q=80&w=1200&auto=format&fit=crop">
+
+            <img src="https://images.unsplash.com/photo-1494774157365-9e04c6720e47?q=80&w=1200&auto=format&fit=crop">
+
         </div>
 
-        <span class="badge">Forever Memories</span>
+        <span class="badge">Forever Memories 💖</span>
+
     </div>
+
 </div>
 
 <footer>
     Made with <span class="heart">❤</span> forever memories
 </footer>
 
-<button class="music-btn" onclick="toggleMusic()">🎵</button>
+<!-- AUTO PLAY ROMANTIC SONG -->
 
-<audio id="bgMusic" loop>
-    <source src="love-song.mp3" type="audio/mp3">
-</audio>
+<iframe
+width="0"
+height="0"
+src="https://www.youtube.com/embed/LoPf32nKYb8?autoplay=1&loop=1&playlist=LoPf32nKYb8"
+title="Romantic Music"
+frameborder="0"
+allow="autoplay"
+allowfullscreen>
+</iframe>
 
 <script>
+
 function go(page){
-    document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+
+    document.querySelectorAll('.page').forEach(p=>{
+        p.classList.remove('active');
+    });
+
     document.getElementById(page).classList.add('active');
+
     window.location.hash = page;
 }
 
-const heartContainer = document.getElementById("hearts");
-
-function createHearts(){
-    const heart = document.createElement("span");
-    heart.innerHTML = "❤";
-    heart.style.left = Math.random()*100 + "vw";
-    heart.style.fontSize = (10 + Math.random()*20) + "px";
-    heart.style.animationDuration = (5 + Math.random()*5) + "s";
-    heartContainer.appendChild(heart);
-    setTimeout(()=>heart.remove(),10000);
-}
-
-setInterval(createHearts, 500);
-
 window.onload = function(){
+
     let hash = window.location.hash.replace('#','');
-    if(hash){ go(hash); }
+
+    if(hash){
+        go(hash);
+    }
+
 }
 
 const text = "Every love story is beautiful, but ours is my favorite ❤️";
+
 let i = 0;
 
 function type(){
+
     if(i < text.length){
+
         document.getElementById("typing").innerHTML += text.charAt(i);
+
         i++;
-        setTimeout(type, 60);
+
+        setTimeout(type,60);
+
     }
+
 }
 
 type();
 
 const startDate = new Date("2024-01-01");
+
 const today = new Date();
+
 const diffTime = Math.abs(today - startDate);
+
 const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 
-document.getElementById("daysCounter").innerHTML = `💖 Together for ${diffDays} days 💖`;
+document.getElementById("daysCounter").innerHTML =
+`💖 Together for ${diffDays} days 💖`;
 
-const music = document.getElementById("bgMusic");
-let playing = false;
+const heartContainer = document.getElementById("hearts");
 
-function toggleMusic(){
-    if(!playing){
-        music.play();
-        playing = true;
-    }else{
-        music.pause();
-        playing = false;
-    }
+function createHearts(){
+
+    const heart = document.createElement("span");
+
+    heart.innerHTML = "❤";
+
+    heart.style.left = Math.random()*100 + "vw";
+
+    heart.style.fontSize = (10 + Math.random()*20) + "px";
+
+    heart.style.animationDuration = (5 + Math.random()*5) + "s";
+
+    heartContainer.appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },10000);
+
 }
+
+setInterval(createHearts,500);
+
 </script>
 
 </body>

@@ -8,7 +8,6 @@
 <title>Our Love Story ❤️</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
-```html
 
 <style>
 
@@ -18,41 +17,7 @@
     box-sizing:border-box;
     font-family:'Poppins',sans-serif;
 }
-<style>
-.music-btn{
-    position:fixed;
-    bottom:20px;
-    right:20px;
-    width:50px;
-    height:50px;
-    border:none;
-    border-radius:50%;
-    background:#ff0055;
-    color:white;
-    font-size:20px;
-    cursor:pointer;
-    z-index:9999;
-    box-shadow:0 0 15px rgba(255,0,85,0.6);
-}
-</style>
 
-<button class="music-btn" onclick="toggleMusic()">🎵</button>
-
-<audio id="song" loop>
-    <source src="En-Jeevan.mp3" type="audio/mpeg">
-</audio>
-
-<script>
-const song = document.getElementById("song");
-
-function toggleMusic(){
-    if(song.paused){
-        song.play();
-    } else {
-        song.pause();
-    }
-}
-</script>
 body{
     background: linear-gradient(135deg,#ffdde1,#ee9ca7,#ffb6c1);
     background-size:300% 300%;
@@ -249,6 +214,31 @@ footer{
     }
 }
 
+/* MUSIC BUTTON */
+
+.music-btn{
+    position:fixed;
+    bottom:25px;
+    right:25px;
+    width:65px;
+    height:65px;
+    border:none;
+    border-radius:50%;
+    background:rgba(255,255,255,0.2);
+    backdrop-filter:blur(15px);
+    color:white;
+    font-size:26px;
+    cursor:pointer;
+    box-shadow:0 5px 20px rgba(0,0,0,0.25);
+    transition:0.3s;
+    z-index:999;
+}
+
+.music-btn:hover{
+    transform:scale(1.1);
+    background:rgba(255,255,255,0.35);
+}
+
 @media(max-width:768px){
 
 header h1{
@@ -378,6 +368,11 @@ header h1{
         <div class="gallery">
 
             <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=80&w=1200&auto=format&fit=crop">
+
+            <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1200&auto=format&fit=crop">
+
+            <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?q=80&w=1200&auto=format&fit=crop">
+
             <img src="https://images.unsplash.com/photo-1494774157365-9e04c6720e47?q=80&w=1200&auto=format&fit=crop">
 
         </div>
@@ -392,6 +387,17 @@ header h1{
     Made with <span class="heart">❤</span> forever memories
 </footer>
 
+<!-- MUSIC BUTTON -->
+
+<button class="music-btn" onclick="toggleMusic()">
+    ▶
+</button>
+
+<!-- SONG -->
+
+<audio id="bgMusic" loop>
+    <source src="En-Jeevan.mp3" type="audio/mp3">
+</audio>
 
 <script>
 
@@ -470,6 +476,34 @@ function createHearts(){
 }
 
 setInterval(createHearts,500);
+
+/* MUSIC */
+
+const music = document.getElementById("bgMusic");
+
+let playing = false;
+
+function toggleMusic(){
+
+    if(!playing){
+
+        music.play();
+
+        playing = true;
+
+        document.querySelector(".music-btn").innerHTML = "❚❚";
+
+    }else{
+
+        music.pause();
+
+        playing = false;
+
+        document.querySelector(".music-btn").innerHTML = "▶";
+
+    }
+
+}
 
 </script>
 
